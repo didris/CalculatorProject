@@ -16,7 +16,7 @@
     <string name="button9">9</string>
     <string name="buttonAdd">+</string>
     <string name="buttonSubtract">-</string>
-    <string name="multiply">×</string>
+    <string name="ButtonMultiply">×</string>
     <string name="buttonDivide">÷</string>
     <string name="buttonToggleSign">N</string>
     <string name="buttonEquals">=</string>

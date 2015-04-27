@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:maxLines="1"
+            android:maxLength="8"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="0"
@@ -46,7 +47,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_800"/>
+            android:background="@color/material_blue_grey_800"
+            android:onClick="onClick_clear" />
         <Button
             android:id="@+id/buttonClearMemory"
             android:layout_width="0dp"
@@ -56,7 +58,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_800"/>
+            android:background="@color/material_blue_grey_800"
+            android:onClick="onClick_mc" />
         <Button
             android:id="@+id/buttonRecallMemory"
             android:layout_width="0dp"
@@ -66,7 +69,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_800"/>
+            android:background="@color/material_blue_grey_800"
+            android:onClick="onClick_mr" />
         <Button
             android:id="@+id/buttonAddToMemory"
             android:layout_width="0dp"
@@ -76,7 +80,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_800"/>
+            android:background="@color/material_blue_grey_800"
+            android:onClick="onClick_m" />
     </LinearLayout>
 
     <LinearLayout
@@ -89,12 +94,13 @@
             android:id="@+id/back"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight=".515"
+            android:layout_weight=".517"
             android:text="Back"
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_800"/>
+            android:background="@color/material_blue_grey_800"
+            />
 
         <Button
             android:id="@+id/buttonToggleSign"
@@ -105,7 +111,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_800"/>
+            android:background="@color/material_blue_grey_800"
+            android:onClick="onClick_n" />
 
         <Button
             android:id="@+id/buttonDiv"
@@ -116,7 +123,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_800"/>
+            android:background="@color/material_blue_grey_800"
+            android:onClick="onClick_div" />
 
 
     </LinearLayout>
@@ -136,7 +144,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_900"/>
+            android:background="@color/material_blue_grey_900"
+            android:onClick="onClick_seven" />
 
         <Button
             android:id="@+id/button8"
@@ -147,7 +156,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_900"/>
+            android:background="@color/material_blue_grey_900"
+            android:onClick="onClick_eight" />
 
         <Button
             android:id="@+id/button9"
@@ -158,17 +168,19 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_900"/>
+            android:background="@color/material_blue_grey_900"
+            android:onClick="onClick_nine" />
         <Button
-            android:id="@+id/multiply"
+            android:id="@+id/ButtonMultiply"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".25"
-            android:text="@string/multiply"
+            android:text="@string/ButtonMultiply"
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_800"/>
+            android:background="@color/material_blue_grey_800"
+            android:onClick="onClick_multi" />
 
     </LinearLayout>
 
@@ -187,7 +199,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_900"/>
+            android:background="@color/material_blue_grey_900"
+            android:onClick="onClick_four" />
 
         <Button
             android:id="@+id/button5"
@@ -198,7 +211,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_900"/>
+            android:background="@color/material_blue_grey_900"
+            android:onClick="onClick_five" />
 
         <Button
             android:id="@+id/button6"
@@ -209,7 +223,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_900"/>
+            android:background="@color/material_blue_grey_900"
+            android:onClick="onClick_six" />
 
         <Button
             android:id="@+id/buttonSubtract"
@@ -220,7 +235,8 @@
             android:textSize="25sp"
             android:textColor="@android:color/white"
             android:layout_margin="2dp"
-            android:background="@color/material_blue_grey_800"/>
+            android:background="@color/material_blue_grey_800"
+            android:onClick="onClick_subtract" />
 
     </LinearLayout>
 
@@ -253,7 +269,8 @@
                     android:textSize="25sp"
                     android:textColor="@android:color/white"
                     android:layout_margin="2dp"
-                    android:background="@color/material_blue_grey_900"/>
+                    android:background="@color/material_blue_grey_900"
+                    android:onClick="onClick_one" />
 
                 <Button
                     android:id="@+id/button2"
@@ -264,7 +281,8 @@
                     android:textSize="25sp"
                     android:textColor="@android:color/white"
                     android:layout_margin="2dp"
-                    android:background="@color/material_blue_grey_900"/>
+                    android:background="@color/material_blue_grey_900"
+                    android:onClick="onClick_two" />
 
                 <Button
                     android:id="@+id/button3"
@@ -275,7 +293,8 @@
                     android:textSize="25sp"
                     android:textColor="@android:color/white"
                     android:layout_margin="2dp"
-                    android:background="@color/material_blue_grey_900"/>
+                    android:background="@color/material_blue_grey_900"
+                    android:onClick="onClick_three" />
                 <Button
                     android:id="@+id/buttonAdd"
                     android:layout_width="0dp"
@@ -285,7 +304,8 @@
                     android:textSize="25sp"
                     android:textColor="@android:color/white"
                     android:layout_margin="2dp"
-                    android:background="@color/material_blue_grey_800"/>
+                    android:background="@color/material_blue_grey_800"
+                    android:onClick="onClick_add" />
             </LinearLayout>
 
             <LinearLayout
@@ -303,7 +323,8 @@
                     android:textSize="25sp"
                     android:textColor="@android:color/white"
                     android:layout_margin="2dp"
-                    android:background="@color/material_blue_grey_900"/>
+                    android:background="@color/material_blue_grey_900"
+                    android:onClick="onClick_zero" />
 
                 <Button
                     android:id="@+id/buttonEquals"
@@ -315,7 +336,7 @@
                     android:textColor="@android:color/white"
                     android:layout_margin="2dp"
                     android:background="@android:color/holo_orange_dark"
-                    />
+                    android:onClick="on1" />
             </LinearLayout>
         </LinearLayout>
 

@@ -1,64 +1,24 @@
 package com.example.deema.calc2;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.text.InputFilter;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
 
-public class MainActivity extends Activity implements View.OnClickListener {
-
-    private TextView display;
-    private Boolean userIsStillWriting = false;
-    private Calculate calculate;
-    private static final String DIGITS = "0123456789.";
-
-    DecimalFormat df = new DecimalFormat("@###########");
-
-    @SuppressLint("NewApi")
+public class MainActivity extends ActionBarActivity {
+    Double n1=0.0,n2=0.0,m;
+    int x;
+    String operation;
+    TextView display;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        // hide the window title.
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        // hide the status bar and other OS-level chrome
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        calculate = new Calculate();
-        display = (TextView) findViewById(R.id.textView1);
-
-        df.setMinimumFractionDigits(0);
-        df.setMinimumIntegerDigits(1);
-        df.setMaximumIntegerDigits(8);
-
-        findViewById(R.id.button0).setOnClickListener(this);
-        findViewById(R.id.button1).setOnClickListener(this);
-        findViewById(R.id.button2).setOnClickListener(this);
-        findViewById(R.id.button3).setOnClickListener(this);
-        findViewById(R.id.button4).setOnClickListener(this);
-        findViewById(R.id.button5).setOnClickListener(this);
-        findViewById(R.id.button6).setOnClickListener(this);
-        findViewById(R.id.button7).setOnClickListener(this);
-        findViewById(R.id.button8).setOnClickListener(this);
-        findViewById(R.id.button9).setOnClickListener(this);
-        findViewById(R.id.buttonAdd).setOnClickListener(this);
-        findViewById(R.id.buttonSubtract).setOnClickListener(this);
-        findViewById(R.id.multiply).setOnClickListener(this);
-        findViewById(R.id.buttonDiv).setOnClickListener(this);
-        findViewById(R.id.buttonToggleSign).setOnClickListener(this);
-        findViewById(R.id.buttonEquals).setOnClickListener(this);
-        findViewById(R.id.buttonClear).setOnClickListener(this);
-        findViewById(R.id.buttonClearMemory).setOnClickListener(this);
-        findViewById(R.id.buttonAddToMemory).setOnClickListener(this);
-        findViewById(R.id.buttonRecallMemory).setOnClickListener(this);
         Button backspace=(Button)findViewById(R.id.back);
         backspace.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -75,162 +35,178 @@ public class MainActivity extends Activity implements View.OnClickListener {
         });
     }
 
-    @Override
-    public void onClick(View v) {
 
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    public void onClick_zero(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
         String buttonPressed = ((Button) v).getText().toString();
+        display.setText(display.getText().toString() +buttonPressed);
 
-        if (DIGITS.contains(buttonPressed)) {
-            // digit was pressed
-            if (userIsStillWriting) {
-                if (buttonPressed.equals(".") && display.getText().toString().contains(".")) {
-                    // ERROR PREVENTION
-                    // Eliminate entering multiple decimals
-                } else {
-                    display.append(buttonPressed);
-                }
+    }
+    public void onClick_one(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        String buttonPressed = ((Button) v).getText().toString();
+       display.setText(display.getText().toString() +buttonPressed);
+    }
+    public void onClick_two(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        String buttonPressed = ((Button) v).getText().toString();
+        display.setText(display.getText().toString() +buttonPressed);
+    }
+    public void onClick_three(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        String buttonPressed = ((Button) v).getText().toString();
+        display.setText(display.getText().toString() +buttonPressed);
+    }
+    public void onClick_four(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        String buttonPressed = ((Button) v).getText().toString();
+        display.setText(display.getText().toString() +buttonPressed);
+    }
+    public void onClick_five(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        String buttonPressed = ((Button) v).getText().toString();
+        display.setText(display.getText().toString() +buttonPressed);
+    }
+    public void onClick_six(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        String buttonPressed = ((Button) v).getText().toString();
+        display.setText(display.getText().toString() +buttonPressed);
+    }
+    public void onClick_seven(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        String buttonPressed = ((Button) v).getText().toString();
+        display.setText(display.getText().toString() +buttonPressed);
+    }
+    public void onClick_eight(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        String buttonPressed = ((Button) v).getText().toString();
+        display.setText(display.getText().toString() +buttonPressed);
+    }
+    public void onClick_nine(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        String buttonPressed = ((Button) v).getText().toString();
+        display.setText(display.getText().toString() +buttonPressed);
+    }
 
-            } else {
-
-                if (buttonPressed.equals(".")) {
-                    // ERROR PREVENTION
-                    // This will avoid error if only the decimal is hit before an operator, by placing a leading zero
-                    // before the decimal
-                    display.setText(0 + buttonPressed);
-                } else {
-                    display.setText(buttonPressed);
-                }
-
-                userIsStillWriting = true;
-            }
-
-        } else {
-            // operation was pressed
-            if (userIsStillWriting) {
-
-                calculate.setOperand(Double.parseDouble(display.getText().toString()));
-                userIsStillWriting = false;
-            }
-
-            calculate.performOperation(buttonPressed);
-            display.setText(df.format(calculate.getResult()));
-
-        }
+    public void on1(View v ){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        Double nnn=Double.parseDouble(display.getText().toString());
+        n2=nnn;
+        calculate(n1,operation,n2);
 
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        // Save variables on screen orientation change
-        outState.putDouble("OPERAND", calculate.getResult());
-        outState.putDouble("MEMORY", calculate.getMemory());
-    }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        // Restore variables on screen orientation change
-        calculate.setOperand(savedInstanceState.getDouble("OPERAND"));
-        calculate.setMemory(savedInstanceState.getDouble("MEMORY"));
-        display.setText(df.format(calculate.getResult()));
-    }
-    public class Calculate {
-        private double mOperand;
-        private double mWaitingOperand;
-        private String mWaitingOperator;
-        private double mCalculatorMemory;
+    public void calculate ( double n1 ,String o , double n2 ){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        if(o.equals("+")){
+            display.setText(n1+n2+"");
 
-        // operator types
-        public static final String ADD = "+";
-        public static final String SUBTRACT = "-";
-        public static final String MUL = "*";
-        public static final String DIVIDE = "/";
-        public static final String CLEAR = "C" ;
-        public static final String CLEARMEMORY = "MC";
-        public static final String ADDTOMEMORY = "M+";
-        public static final String RECALLMEMORY = "MR";
-        public static final String TOGGLESIGN = "N";
-
-
-        // constructor
-        public Calculate() {
-            // initialize variables upon start
-            mOperand = 0;
-            mWaitingOperand = 0;
-            mWaitingOperator = "";
-            mCalculatorMemory = 0;
         }
-
-        public void setOperand(double operand) {
-            mOperand = operand;
+        else if(o.equals("-")){
+            display.setText(n1-n2+"");
         }
-
-        public double getResult() {
-            return mOperand;
+        else if(o.equals("*")){
+            display.setText(n1*n2+"");
         }
-
-        // used on screen orientation change
-        public void setMemory(double calculatorMemory) {
-            mCalculatorMemory = calculatorMemory;
-        }
-
-        // used on screen orientation change
-        public double getMemory() {
-            return mCalculatorMemory;
-        }
-
-        public String toString() {
-            return Double.toString(mOperand);
-        }
-
-        protected double performOperation(String operator) {
-
-            if (operator.equals(CLEAR)) {
-                mOperand = 0;
-                mWaitingOperator = "";
-                mWaitingOperand = 0;
-                // mCalculatorMemory = 0;
-            } else if (operator.equals(CLEARMEMORY)) {
-                mCalculatorMemory = 0;
-            } else if (operator.equals(ADDTOMEMORY)) {
-                mCalculatorMemory = mCalculatorMemory + mOperand;
-                mOperand = 0;
-                mWaitingOperator = "";
-                mWaitingOperand = 0;
-
-            }  else if (operator.equals(RECALLMEMORY)) {
-                mOperand = mCalculatorMemory;
-
-            } else if (operator.equals(TOGGLESIGN)) {
-                mOperand = -mOperand;
-            }
-
-
-            else {
-                performWaitingOperation();
-                mWaitingOperator = operator;
-                mWaitingOperand = mOperand;
-            }
-
-            return mOperand;
-        }
-
-        protected void performWaitingOperation() {
-         if (mWaitingOperator.equals(ADD)) {
-                mOperand = mWaitingOperand + mOperand;
-            } else if (mWaitingOperator.equals(SUBTRACT)) {
-                mOperand = mWaitingOperand - mOperand;
-            }
-         else if (mWaitingOperator.equals(MUL)) {
-            mOperand = mWaitingOperand * mOperand;
-             } else if (mWaitingOperator.equals(DIVIDE)) {
-             if (mOperand != 0) {
-              mOperand = mWaitingOperand / mOperand;
-               }
-            }
-
+        else if(o.equals("/")){
+            display.setText(n1/n2+"");
         }
     }
 
+
+    public void onClick_multi(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        operation="*";
+        n1=Double.parseDouble(display.getText().toString());
+
+    }
+    public void onClick_add(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        Button b=(Button)findViewById(R.id.buttonAdd);
+        operation=b.getText().toString();
+        n1=Double.parseDouble(display.getText().toString());
+
+    }
+
+
+    public void onClick_div(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        Button b=(Button)findViewById(R.id.buttonDiv);
+        operation="/";
+        n1=Double.parseDouble(display.getText().toString());
+    }
+
+
+    public void onClick_subtract(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        int maxLength = 8;
+        display.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength)});
+        Button b=(Button)findViewById(R.id.buttonSubtract);
+        operation=b.getText().toString();
+        n1=Double.parseDouble(display.getText().toString());
+
+    }
+    public void onClick_clear(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        display.setText("0");
+
+    }
+
+    /*public void onClick_back(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        String str=display.getText().toString().substring(0,display.getText().toString().length()-1);
+        display.setText(str);}*/
+
+
+
+    public void onClick_n(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        Double num=Double.parseDouble(display.getText().toString());
+        display.setText(num*-1+"");
+
+    }
+    public void onClick_m(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        m=Double.parseDouble(display.getText().toString());
+        display.setText("0");
+
+
+    }
+    public void onClick_mr(View v){
+        TextView display= (TextView) findViewById(R.id.textView1);
+        display.setText(m+"");
+
+    }
+    public void onClick_mc(View v){
+        m=0.0;
+
+    }
 }
