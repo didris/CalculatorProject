@@ -24,9 +24,10 @@
             android:gravity="right"
             android:maxLines="1"
             android:maxLength="8"
+            android:text="0"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="0"
+
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="40sp"
             android:textColor="@android:color/white"
