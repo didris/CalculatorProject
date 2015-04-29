@@ -1,8 +1,7 @@
 package com.example.deema.calc2;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,13 +17,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -157,6 +149,7 @@ public class MainActivity extends ActionBarActivity {
     public void onClick_m(View v){
         TextView display= (TextView) findViewById(R.id.textView1);
         m=Double.parseDouble(display.getText().toString());
+        display.setText("0");
 
 
     }
